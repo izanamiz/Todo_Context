@@ -27,7 +27,6 @@ export const TodoForm = () => {
       setForm(item);
     }
   }, [id]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid) {
@@ -39,7 +38,7 @@ export const TodoForm = () => {
       }, 2000);
     }
   };
- 
+
   return (
     <div>
       <div className="d-flex my-5 justify-content-between">
@@ -81,7 +80,8 @@ export const TodoForm = () => {
             <select
               className="form-select"
               id="exampleSelect1"
-              defaultValue={`${selectLevel}`}
+              name="level"
+              value={`${selectLevel}`}
               onChange={handleSelectLevel}
             >
               <option value="1">Phải làm ngay</option>

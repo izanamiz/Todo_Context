@@ -44,11 +44,11 @@ const TaskProvider = ({ children }) => {
   };
 
   const addItem = async (request) => {
-    console.log("request: ", request)
-    request.id = Date.now();
-    setItems((items) => [...items, request]);
+    // request.id = Date.now();
+    // setItems((items) => [...items, request]);
     try {
-      await instance.post("/todos", request);
+      var res = await instance.post("/todos", request);
+      setItems((items) => [...items, res.data]);
       // const res = await instance.post("/todos", request);
       // setItems((items) => [...items, res.data]);
     } catch (err) {

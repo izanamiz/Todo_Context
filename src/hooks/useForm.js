@@ -4,8 +4,7 @@ export const useForm = (initialState = {}) => {
   const [inputValues, setInputValues] = useState(initialState);
   const [isValid, setValid] = useState(false);
   const [selectLevel, setSelectLevel] = useState(initialState.level);
-  console.log("inputValues: ", inputValues);
-  console.log("selectLevel: ", selectLevel);
+
   const resetForm = () => {
     setInputValues(initialState);
     setValid(false);
@@ -13,13 +12,11 @@ export const useForm = (initialState = {}) => {
 
   const setForm = (newValues) => {
     setInputValues(newValues);
+    setSelectLevel(newValues.level);
     setValid(true);
   };
 
   const handleInputChange = ({ target }) => {
-    console.log("target input: ", target);
-    console.log("input: ", target.value);
-    console.log(isValid);
     if (target.value === "") {
       setValid(false);
     } else setValid(true);
@@ -29,9 +26,8 @@ export const useForm = (initialState = {}) => {
     });
   };
   const handleSelectLevel = ({ target }) => {
-    console.log("target select: ", target.value);
     setSelectLevel(target.value);
-    setInputValues({ ...inputValues, [target.level]: target.value });
+    setInputValues({ ...inputValues, [target.name]: target.value });
   };
   return {
     inputValues,

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TaskContext } from "../context/TaskContext";
 import { useContext } from "react";
 export const TodoItem = ({ item }) => {
+  // console.log(item)
   const { id, name, isDone, level } = item;
   const { deleteItem, completeItem } = useContext(TaskContext);
   const navigate = useNavigate();
